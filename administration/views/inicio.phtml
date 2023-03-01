@@ -1,0 +1,18 @@
+<div class="container-fluid">
+    <h1><?php _e('Dashboard', 'wb-misite-localization') ?> </h1>
+
+    <div class="wbloc-box-principal">
+        <div class="wrbda-th-opciones">
+            <input type="text" name="txt_buscar" id="txt_buscar" placeholder=" Buscar" onkeyup="wbloc_buscar_slogan()">
+            <button><?php _e('Buscar') ?></button>
+            <select name="opcion_group" id="opcion_group">
+                <option value="accion"><?php _e('selezionare') ?></option>
+                <option value="Eliminare"><?php _e('Eliminare') ?></option>
+            </select>
+            <button onclick="wbloc_selec_opcion();"><?php _e('Applica') ?></button>
+        </div>
+
+        <div id="wbloc_message"></div>
+        <div id="wbloc_load_seccion"></div>
+    </div>
+</div>

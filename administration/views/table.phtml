@@ -1,0 +1,59 @@
+<div class="wrbda-table">
+    <table class="table">
+        <tr class="wr-label-table">
+            <th> <input type="checkbox" id="check_all" name="check_all" onclick="wbloc_seleccionar()"> <?php _e('ID') ?></th>
+            <th><?php _e('Enlaces') ?></th>
+            <th><?php _e('Dirección Ip') ?></th>
+            <th><?php _e('Ubicación') ?></th>
+            <th><?php _e('fecha/hora') ?></th>
+            <th><?php _e('Opción') ?></th>
+        </tr>
+        <?php
+
+        if (!empty($lista_datos)) {
+            foreach ($lista_datos as $key => $value) { ?>
+                <tr>
+                    <td><input type="checkbox" class="cbox1" id="cbox1[]" name="cbox1[]" value="<?= $value->id ?>"><?= $value->id ?></td>
+                    <td><?= $value->site_url; ?></td>
+                    <td><?= $value->direccion_ip; ?></td>
+                    <td><?= $value->ubicacion; ?></td>
+                    <td><?= $value->fecha_registro; ?></td>
+                    <td>
+                        <div class="wrbda-th-opciones-slg">
+                            <button class="wbloc_btn_delete" onclick="wbloc_delete_page('<?= $value->id ?>','<?= $pagina ?>')"><?php printf('Eliminar'); ?></i></button>
+                        </div>
+                    </td>
+                </tr>
+        <?php  }
+        } else {
+            echo "<tr><td class='text-center' colspan='7'>" . __('No ahy datos') . "</td></tr>";
+        } ?>
+    </table>
+    </div>
+<nav>
+    <div class="wr-paginacion">
+        <ul class="pagination">
+            <p>Página <?php echo $pagina ?> de <?php echo $paginas ?> </p>
+            <?php if ($pagina > 1) { ?>
+                <li class="page-item">
+                    <a onclick="wbloc_load_page('<?php echo $pagina - 1 ?>','<?php echo $dato ?>','Realizado')">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+            <?php } ?>
+            <?php for ($x = 1; $x <= $paginas; $x++) { ?>
+                <li class="<?php if ($x == $pagina) echo "active" ?>">
+                    <a onclick="wbloc_load_page('<?php echo $x ?>','<?php echo $dato ?>','Realizado')">
+                        <?php echo $x ?></a>
+                </li>
+            <?php } ?>
+            <?php if ($pagina < $paginas) { ?>
+                <li>
+                    <a onclick="wbloc_load_page('<?php echo $pagina + 1 ?>','<?php echo $dato ?>','Realizado')">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            <?php } ?>
+        </ul>
+    </div>
+</nav>

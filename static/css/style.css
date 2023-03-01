@@ -1,0 +1,123 @@
+.wbloc-box-principal {/*Contenedor principal*/
+    margin: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #E6E6E6;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+}
+
+/*Seccion de buscar*/
+
+.wrbda-th-opciones {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.wrbda-th-opciones>#opcion_group {
+    color: #111111;
+    margin: 0 10px 0 10px;
+    width: 167px;
+    font-size: 16px;
+}
+
+.wrbda-th-opciones>#opcion_group:focus {
+    color: #1a1a1a;
+}
+
+.wrbda-th-opciones>#opcion_group:hover {
+    color: #1a1a1a;
+}
+
+.wrbda-th-opciones>button , .wbloc_btn_delete{
+    border: #969696 1px solid;
+    margin-bottom: 0;
+    border-radius: 5px;
+    background: #f1f1f1;
+    color: #141414;
+}
+
+.wbloc_btn_delete:hover{
+    background: #d4d4d4;
+}
+
+.wrbda-th-opciones>input {
+    width: 100%;
+    margin: 0 5px 0 5px;
+    border-radius: 5px;
+}
+
+.wrbda-th-opciones>label {
+    margin-bottom: 0;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+}
+
+/*TABLE*/
+
+.wrbda-table {
+    overflow-x: scroll !important;
+}
+
+.wr-label-table>th {
+    font-size: 16px;
+    background: #d3d3d3;
+    color: #2c2c2c;
+}
+
+.wrbda-th-opciones-slg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*paginacion*/
+
+.wr-paginacion {
+    margin: 25px 0px !important;
+}
+
+
+.pagination {
+    display: flex;
+    position: relative;
+    list-style: none !important;
+    justify-content: right !important;
+    font-size: 16px;;
+}
+
+.pagination>li>a {
+    background: #ffffff;
+    margin: 3px;
+    color: #191919;
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: 1px solid #8a8a8a;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.pagination>li>a:hover {
+    background: #108fca ;
+    color: #ffffff;
+}
+
+.pagination>li>a:visited {
+    background: #108fca ;
+    color: #ffffff;
+}
+
+
+.pagination>li.active>a{
+    background: #108fca;
+    color: #ffffff;
+}
+
+
+.pagination>p{
+    font-size: 16px;
+}
