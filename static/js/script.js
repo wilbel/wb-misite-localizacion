@@ -1,4 +1,5 @@
 (function ($) {
+
     wbloc_load_page(1, '', '');
 })(jQuery);
 
