@@ -1,23 +1,16 @@
 (function ($) {
-
     wbloc_load_page(1, '', '');
 })(jQuery);
 
-function wbloc_disenio_slogan() {
-    jQuery('#wbloc_load_seccion').empty();
-    let html = '<div class="wbloc-box-img-principal"></div>';
-    jQuery('#wbloc_load_seccion').append(html);
-}
 
 function wbloc_buscar_slogan() {
     dato = jQuery('#txt_buscar').val();
     wbloc_load_page(1, dato, '');
 }
 
+
 function wbloc_load_page(pagina, dato, message) {
     (function ($) {
-
-        wbloc_disenio_slogan();
         var url = SolicitudesAjax.url;
         jQuery.ajax({
             type: 'POST',
@@ -35,8 +28,8 @@ function wbloc_load_page(pagina, dato, message) {
                 jQuery('#wbloc_message').html(message);
             },
             success: function (datos) {
-
-                jQuery('.wbloc-box-img-principal').append(datos);
+                jQuery('#wbloc_load_seccion').html(datos);
+                
             },
             error: function (msg, xy) {
                 console.log(msg);

@@ -12,7 +12,6 @@ function wbloc_script_ajax()
     wp_localize_script('wbloc_ajax_utilitarios', 'SolicitudesAjax', ['url' => admin_url('admin-ajax.php'), 'seguridad' => wp_create_nonce('seg')]);
 }
 
-
 function wbloc_getRealIP()
 {
     if (isset($_SERVER["HTTP_CLIENT_IP"])) {
@@ -40,8 +39,7 @@ function wbloc_obtener_datos_site()
         die('denegado');
     }
     $tiempo = $_POST['hora'];
-    global $wp;
-    $url_actual = home_url(add_query_arg(array(), $wp->request));
+    $url_actual = $_POST['urlpagina'];
     $querys = new WBLOC_QuerysController();
     $dataArray = json_decode(file_get_contents("http://www.geoplugin.net/json.gp?ip=" . wbloc_getRealIP()));
     $ubicacion = $dataArray->geoplugin_continentName . ' - ' . $dataArray->geoplugin_countryName . ' - ' . $dataArray->geoplugin_region . ' - ' . $dataArray->geoplugin_city;
@@ -54,5 +52,5 @@ function wbloc_obtener_datos_site()
             }
         }
     }
-    wp_die();
+    wp_die($url_actual);
 }

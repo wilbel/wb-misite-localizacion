@@ -43,7 +43,6 @@ class WBLOC_AdminLoadPageController
             );
             wp_localize_script('wbloc_ajax', 'SolicitudesAjax', ['url' => admin_url('admin-ajax.php'), 'seguridad' => wp_create_nonce('seg')]);
         } else if ($page == "info.phtml") {
-            
         } else if ($page == "table.phtml") {
             define('CANT_ITEMS_BY_PAGE', 10);
             $querys = new WBLOC_QuerysController();
@@ -54,7 +53,7 @@ class WBLOC_AdminLoadPageController
             $where = "";
             if (isset($_POST["dato"])) {
                 $dato = $_POST["dato"];
-                $where = 'WHERE CONCAT(id , site_url, direccion_ip,fecha_registro) LIKE "%' . $dato . '%" ';
+                $where = 'WHERE CONCAT(id ," ", site_url," ", direccion_ip," ",ubicacion," ",fecha_registro) LIKE "%' . $dato . '%" ';
             }
 
             $limit = CANT_ITEMS_BY_PAGE;

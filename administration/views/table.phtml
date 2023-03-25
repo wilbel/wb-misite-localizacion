@@ -29,29 +29,48 @@
             echo "<tr><td class='text-center' colspan='7'>" . __('No ahy datos') . "</td></tr>";
         } ?>
     </table>
-    </div>
+</div>
+
+
+
+<?php
+$diferencia = $paginas - $pagina;
+$start_loop = $pagina;
+if ($diferencia <= CANT_ITEMS_BY_PAGE) {
+    $start_loop =   ($paginas - CANT_ITEMS_BY_PAGE);
+}
+$end_loop = $start_loop + (CANT_ITEMS_BY_PAGE); ?>
 <nav>
     <div class="wr-paginacion">
         <ul class="pagination">
-            <p>Página <?php echo $pagina ?> de <?php echo $paginas ?> </p>
+            <p>Pagina <?php echo $pagina ?> / <?php echo $paginas ?> de <?php echo $conteo ?> datos</p>
+            <li class="page-item">
+                <a onclick="wbloc_load_page('<?= 1; ?>','<?= $codigo; ?>','Realizado')">Inicio</a>
+            </li>
             <?php if ($pagina > 1) { ?>
                 <li class="page-item">
-                    <a onclick="wbloc_load_page('<?php echo $pagina - 1 ?>','<?php echo $dato ?>','Realizado')">
-                        <span aria-hidden="true">&laquo;</span>
+                    <a onclick="wbloc_load_page('<?php echo $pagina - 1 ?>','<?= $codigo; ?>','Realizado')">
+                        <span aria-hidden="true">
+                            << </span>
                     </a>
                 </li>
             <?php } ?>
-            <?php for ($x = 1; $x <= $paginas; $x++) { ?>
-                <li class="<?php if ($x == $pagina) echo "active" ?>">
-                    <a onclick="wbloc_load_page('<?php echo $x ?>','<?php echo $dato ?>','Realizado')">
-                        <?php echo $x ?></a>
-                </li>
-            <?php } ?>
-            <?php if ($pagina < $paginas) { ?>
+            <?php for ($i = $start_loop; $i <= $end_loop; $i++) { ?>
+                <?php if ($i > 0) { ?>
+                    <li class="<?php if ($i == $pagina) echo "active" ?>">
+                        <a onclick="wbloc_load_page('<?php echo $i ?>','<?= $codigo; ?>','Realizado')">
+                            <?php echo $i ?></a>
+                    </li>
+            <?php }
+            } ?>
+            <?php if ($pagina < $end_loop) {  ?>
                 <li>
-                    <a onclick="wbloc_load_page('<?php echo $pagina + 1 ?>','<?php echo $dato ?>','Realizado')">
-                        <span aria-hidden="true">&raquo;</span>
+                    <a onclick="wbloc_load_page('<?php echo $pagina + 1 ?>','<?= $codigo; ?>','Realizado')">
+                        <span aria-hidden="true">>></span>
                     </a>
+                </li>
+                <li class="page-item">
+                    <a onclick="wbloc_load_page('<?= $paginas; ?>','<?= $codigo; ?>','Realizado')">Ultima</a>
                 </li>
             <?php } ?>
         </ul>

@@ -3,6 +3,7 @@
 defined('ABSPATH') or die('');
 class WBLOC_QuerysController
 {
+    private $wpdb_local;
     function __construct()
     {
         global $wpdb;
