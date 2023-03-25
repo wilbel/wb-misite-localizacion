@@ -4,7 +4,7 @@
  * Plugin Name: WB Misite Localization
  * Plugin URI: https://www.wibcode.com/
  * Description: Este plugin permite ver de que parte los usuarios vistan el sitio web
- * Version: 1.0.0
+ * Version: 1.1.0
  * Author: Wibcode
  * Author https://www.wibcode.com/
  * License: GPL2
